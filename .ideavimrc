@@ -1,0 +1,73 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Clipboard
+set clipboard+=unnamed
+
+" NERDTree
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+let mapleader = " "
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+" Debugger
+nmap <leader>dc :action Debug
+nmap <leader>db :action ToggleLineBreakpoint
+
+" Tab
+nmap <leader>bb :action NextTab<CR>
+nmap <leader>bd :action CloseEditor<CR>
+nnoremap <leader><leader> <C-Tab>
+
+" LSP
+nnoremap <leader>cr :action RenameElement<CR>
+nnoremap <leader>cR :action RenameFile<CR>
+nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>cl :action ActivateProblemsViewToolWindow<CR>
+
+" gotos
+nmap <leader>a :action GotoAction<CR>
+nmap ga :action GotoAction<CR>
+nmap gf :action GotoFile<CR>
+nmap gs :action GotoSymbol<CR>
+nmap gT :action TextSearchAction<CR>
+nmap go :action GotoSuperMethod<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gD :action GotoTypeDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gI :action QuickImplementations<CR>
+nmap gn :action ShowNavBar<CR>
+nmap gr :action FindUsages<CR>
+
+" Todo
+nmap <leader>to :action ActivateTODOToolWindow<CR>
+
+" Move selected line / block of text in visual mode
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
